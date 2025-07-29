@@ -58,6 +58,10 @@
         .impact-negative {
             background-color: #ef4444;
         }
+        .scenario-bar-container {
+            height: 40px;
+            width: 100%;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -107,6 +111,122 @@
             <p class="text-center mb-8">Die Gewichtung der Assets ist das Ergebnis einer detaillierten, ereignisbasierten Analyse, um ein optimales Chance-Risiko-Profil zu gewährleisten.</p>
             <div class="chart-container h-96 md:h-[500px]">
                 <canvas id="allocationChart"></canvas>
+            </div>
+        </section>
+        
+        <section id="detailed-analysis" class="mb-20 md:col-span-2 card">
+            <h2 class="text-3xl font-bold text-white text-center mb-8">Portfolio-Analyse im Detail</h2>
+            <div class="space-y-12">
+                
+                <!-- Asset 1: Northrop Grumman -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Northrop Grumman (NOC)</h3>
+                        <p class="font-semibold text-lg text-a5d7e8 mb-4">Gewichtung: 20%</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Rolle:</strong> Geopolitischer Renditetreiber</li>
+                            <li><strong>Absicherung gegen:</strong> Konjunkturabschwächung (Impact 0 bei Rezession)</li>
+                            <li><strong>Profitiert von:</strong> Geopolitischer Krise (E6, Impact +8), Handelskrieg (E2, Impact +2)</li>
+                            <li><strong>Hauptrisiko:</strong> Geringe Sensitivität bei überraschender Zinssenkung (E8, Impact +1)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-center font-semibold mb-2">Szenario-Wahrscheinlichkeiten</p>
+                        <div class="scenario-bar-container"><canvas id="nocScenarioChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Asset 2: Rheinmetall AG -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Rheinmetall AG (RHM)</h3>
+                        <p class="font-semibold text-lg text-a5d7e8 mb-4">Gewichtung: 10%</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Rolle:</strong> Geopolitischer Renditetreiber (High-Beta)</li>
+                            <li><strong>Absicherung gegen:</strong> Moderate Inflation (indexierte Verträge)</li>
+                            <li><strong>Profitiert von:</strong> Steigenden Verteidigungsausgaben (Impact +7.5)</li>
+                            <li><strong>Hauptrisiko:</strong> Hohe negative Sensitivität bei Marktpanik (VIX > 25, Impact -6.0)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-center font-semibold mb-2">Szenario-Wahrscheinlichkeiten</p>
+                        <div class="scenario-bar-container"><canvas id="rhmScenarioChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Asset 3: iShares Physical Gold ETC -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">iShares Physical Gold (IGLN)</h3>
+                        <p class="font-semibold text-lg text-a5d7e8 mb-4">Gewichtung: 5%</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Rolle:</strong> Safe-Haven & Inflations-Hedge</li>
+                            <li><strong>Absicherung gegen:</strong> Marktunsicherheit, Währungsabwertung</li>
+                            <li><strong>Profitiert von:</strong> Goldpreis-Ausbruch > $2400 (E11, 55% W.), Geopolitischer Krise (E6, Impact +2.4)</li>
+                            <li><strong>Hauptrisiko:</strong> Stark steigende Realzinsen infolge eines Inflationsschocks (E1)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-center font-semibold mb-2">Szenario-Wahrscheinlichkeiten</p>
+                        <div class="scenario-bar-container"><canvas id="iglnScenarioChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Asset 4: iShares S&P 500 Utilities -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">iShares S&P 500 Utilities (IUSU)</h3>
+                        <p class="font-semibold text-lg text-a5d7e8 mb-4">Gewichtung: 15%</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Rolle:</strong> Defensiver Kern-Stabilisator & Zins-Hedge</li>
+                            <li><strong>Absicherung gegen:</strong> Marktvolatilität (VIX > 25, Impact +2), Rezession (Impact +2)</li>
+                            <li><strong>Profitiert von:</strong> Überraschender Zinssenkung (Impact +3)</li>
+                            <li><strong>Hauptrisiko:</strong> Anhaltend hohe oder steigende Zinsen (Impact -4)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-center font-semibold mb-2">Szenario-Wahrscheinlichkeiten</p>
+                        <div class="scenario-bar-container"><canvas id="iusuScenarioChart"></canvas></div>
+                    </div>
+                </div>
+                
+                 <!-- Asset 5: SPDR MSCI World Health Care -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">SPDR World Health Care</h3>
+                        <p class="font-semibold text-lg text-a5d7e8 mb-4">Gewichtung: 20%</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><strong>Rolle:</strong> Defensiver Kern-Stabilisator</li>
+                            <li><strong>Absicherung gegen:</strong> Rezession (Impact +2), Marktvolatilität (VIX > 25, Impact +2)</li>
+                            <li><strong>Profitiert von:</strong> "Flight-to-Quality"-Phasen</li>
+                            <li><strong>Hauptrisiko:</strong> Geringes Aufwärtspotenzial in starken "Risk-On"-Szenarien</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-center font-semibold mb-2">Szenario-Wahrscheinlichkeiten</p>
+                        <div class="scenario-bar-container"><canvas id="healthScenarioChart"></canvas></div>
+                    </div>
+                </div>
+
+                <!-- Asset 6 & 7: Kurzläufer Anleihen -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Kurzlaufende US-Anleihen</h3>
+                        <p class="font-semibold text-lg text-a5d7e8 mb-4">Gewichtung: 30% (IBO1 & VDST)</p>
+                         <ul class="space-y-2 text-sm">
+                            <li><strong>Rolle:</strong> Kapitalerhalt & "Safe Haven"</li>
+                            <li><strong>Absicherung gegen:</strong> Rezession (Impact +3), Marktpanik (VIX > 25, Impact +2)</li>
+                            <li><strong>Profitiert von:</strong> "Flight-to-Quality"-Phasen</li>
+                            <li><strong>Hauptrisiko:</strong> Negative Realrendite bei Inflationsschub (Impact -1)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-center font-semibold mb-2">Szenario-Wahrscheinlichkeiten</p>
+                        <p class="text-center text-sm">(Keine Bull/Bear Cases, da zur Absicherung)</p>
+                        <div class="scenario-bar-container"><canvas id="bondScenarioChart"></canvas></div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -312,6 +432,61 @@
                 plugins: chartTooltip.plugins
             }
         });
+
+        // --- Detailed Analysis Scenario Charts ---
+        function createScenarioChart(canvasId, probabilities) {
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Wahrscheinlichkeit'],
+                    datasets: [
+                        { label: `Bear Case (${probabilities.bear}%)`, data: [probabilities.bear], backgroundColor: '#ef4444' },
+                        { label: `Base Case (${probabilities.base}%)`, data: [probabilities.base], backgroundColor: '#576CBC' },
+                        { label: `Bull Case (${probabilities.bull}%)`, data: [probabilities.bull], backgroundColor: '#22c55e' }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: true, position: 'bottom', labels: { color: '#A5D7E8', boxWidth: 15, font: { size: 10 } } },
+                        tooltip: { enabled: false }
+                    },
+                    scales: {
+                        x: { stacked: true, display: false, max: 100 },
+                        y: { stacked: true, display: false }
+                    }
+                }
+            });
+        }
+
+        createScenarioChart('nocScenarioChart', { bull: 10, base: 70, bear: 20 });
+        createScenarioChart('rhmScenarioChart', { bull: 30, base: 55, bear: 15 });
+        createScenarioChart('iglnScenarioChart', { bull: 15, base: 65, bear: 20 });
+        createScenarioChart('iusuScenarioChart', { bull: 10, base: 70, bear: 20 });
+        createScenarioChart('healthScenarioChart', { bull: 25, base: 65, bear: 10 });
+        
+        const bondCtx = document.getElementById('bondScenarioChart').getContext('2d');
+        new Chart(bondCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Wahrscheinlichkeit'],
+                datasets: [
+                    { label: 'Base Case (100%)', data: [100], backgroundColor: '#576CBC' }
+                ]
+            },
+            options: {
+                indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: true, position: 'bottom', labels: { color: '#A5D7E8', boxWidth: 15, font: { size: 10 } } },
+                    tooltip: { enabled: false }
+                },
+                scales: { x: { stacked: true, display: false, max: 100 }, y: { stacked: true, display: false } }
+            }
+        });
+
 
     </script>
 </body>
